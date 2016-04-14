@@ -88,8 +88,27 @@ placeholder
 
 \section{Lecture 10: Maxflow-Mincut}
 
-placeholder
+\definition{Value of flow} $|f| = \sum\limits_{v \in V} f(s, v) - \sum\limits_{v \in V} f(v,s)$
 
+\definition{Max-Flow Problem} Given a network $G = (V, E, s, t, c)$, find a flow of maximum value.
+
+\definition{Augmenting Path} A path from $s$ to $t$, such that not all edges on the path are at capacity.
+
+\definition{Ford-Fulkerson Algorithm}
+
+\begin{enumerate}
+\item $f = 0$
+\item While there is an augmenting path $p$, send max possible flow along $p$.
+\item Return $f$.
+\end{enumerate}
+
+This is $O(E)$ per augmentation, and if all capacities are integers, the whole algorithm terminates in $O(Ef)$. F-F with BFS has worst-case runtime of $O(VE^2)$.
+
+\definition{Min-Cut Problem} Given a network $G = (V, E, s, t, c)$, find a cut of minimum capacity.
+
+All $s-t$ cuts have the same capacity because of conservation of flow.
+
+\definition{Maxflow-Mincut Theorem} The value of the max flow is equal to the capacity of the min-cut for any network.
 %------------------------------------
 
 \section{Lecture 11: Vertex Cover and Matching}
@@ -151,7 +170,7 @@ A helpful way to think about this is to sandwich the bipartite graph between a s
 \end{tikzpicture}
 \end{center}
 
-The size of the mincut of $G'$ is the size of the Minimum VC of $G$.
+The flow of $G'$ is the size of the Minimum VC of $G$.
 
 \definition{Matching}: A set of edges of a graph that share no endpoints.
 
